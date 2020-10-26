@@ -1,5 +1,3 @@
-importScripts("/vue-pwa/precache-manifest.475205ce9955fec300c23336f5401402.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
-
 // adjust log level for displaying workbox logs
 workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug)
 
@@ -80,4 +78,3 @@ self.addEventListener('push', (e) => {
 
   e.waitUntil(self.registration.showNotification(data.title, options))
 })
-

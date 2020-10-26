@@ -30,5 +30,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
     "url": "/vue-pwa/robots.txt"
+  },
+  {
+    "revision": "e4dbe3dd9f1e1fe8359b409aa7a62234",
+    "url": "/vue-pwa/service-worker.js"
   }
 ]);
