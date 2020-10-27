@@ -1,5 +1,3 @@
-workbox.routing.registerNavigationRoute('/index.html')
-
 workbox.routing.registerRoute(
     /^https:\/\/fonts\.googleapis\.com/,
     new workbox.strategies.StaleWhileRevalidate({

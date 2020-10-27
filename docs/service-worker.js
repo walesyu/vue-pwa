@@ -1,6 +1,4 @@
-importScripts("/vue-pwa/precache-manifest.1d5b6f1c0d8331a4d3ea8ae89f076abc.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
-
-workbox.routing.registerNavigationRoute('/index.html')
+importScripts("/vue-pwa/precache-manifest.078ed5f89399d8f9812a50ad4ab08dec.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 workbox.routing.registerRoute(
     /^https:\/\/fonts\.googleapis\.com/,
