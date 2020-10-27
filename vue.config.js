@@ -3,10 +3,10 @@ module.exports = {
       ? '/vue-pwa/'
       : '/',
   outputDir: 'docs',
-  pwa: {
-    workboxPluginMode: 'InjectManifest',
-    workboxOptions: {
-      swSrc: 'public/service-worker.js'
-    }
-  }
+  // pwa: {
+  //   workboxPluginMode: 'InjectManifest',
+  //   workboxOptions: {
+  //     swSrc: 'public/service-worker.js'
+  //   }
+  // }
 }
