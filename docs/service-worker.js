@@ -1,34 +1,70 @@
-/**
- * Welcome to your Workbox-powered service worker!
- *
- * You'll need to register this file in your web app and you should
- * disable HTTP caching for this file too.
- * See https://goo.gl/nhQhGp
- *
- * The rest of the code is auto-generated. Please don't update this file
- * directly; instead, make changes to your Workbox build configuration
- * and re-run your build process.
- * See https://goo.gl/2aRDsh
- */
+importScripts("/vue-pwa/precache-manifest.79ae3d827380826696522d8bc2b274e5.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+workbox.routing.registerRoute(
+    /^https:\/\/fonts\.googleapis\.com/,
+    new workbox.strategies.StaleWhileRevalidate({
+      cacheName: 'google-fonts-stylesheets',
+    })
+)
 
-importScripts(
-  "/vue-pwa/precache-manifest.078ed5f89399d8f9812a50ad4ab08dec.js"
+workbox.routing.registerRoute(
+    /^https:\/\/fonts\.gstatic\.com/,
+    new workbox.strategies.CacheFirst({
+      cacheName: 'google-fonts-webfonts',
+      plugins: [
+        new workbox.cacheableResponse.Plugin({
+          statuses: [0, 200],
+        }),
+        new workbox.expiration.Plugin({
+          maxAgeSeconds: 60 * 60 * 24 * 365,
+          maxEntries: 30,
+        }),
+      ],
+    })
+)
+
+workbox.routing.registerRoute(
+    /^https:\/\/stackpath\.bootstrapcdn\.com/,
+    new workbox.strategies.StaleWhileRevalidate({
+      cacheName: 'fontawesome',
+    })
 );
 
-workbox.core.setCacheNameDetails({prefix: "pwa-vue-new"});
-
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
+// This code listens for the user's confirmation to update the app.
+self.addEventListener('message', (e) => {
+  if (!e.data) {
+    return;
   }
-});
 
-/**
- * The workboxSW.precacheAndRoute() method efficiently caches and responds to
- * requests for URLs in the manifest.
- * See https://goo.gl/S9QRab
- */
+  switch (e.data) {
+    case 'skipWaiting':
+      self.skipWaiting();
+      break;
+    default:
+      // NOOP
+      break;
+  }
+})
+
+// Listen to Push
+self.addEventListener('push', (e) => {
+  console.log(123333);
+  let data
+  if (e.data) {
+    data = e.data.json()
+  }
+
+  const options = {
+    body: data.body,
+    icon: '/img/icons/android-chrome-192x192.png',
+    image: '/img/autumn-forest.png',
+    vibrate: [300, 200, 300],
+    badge: '/img/icons/plint-badge-96x96.png',
+  }
+
+  e.waitUntil(self.registration.showNotification(data.title, options))
+})
+
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+
