@@ -1,21 +1,7 @@
-importScripts("/vue-pwa/precache-manifest.475205ce9955fec300c23336f5401402.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/vue-pwa/precache-manifest.1d5b6f1c0d8331a4d3ea8ae89f076abc.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
-// adjust log level for displaying workbox logs
-workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug)
-
-// apply precaching. In the built version, the precacheManifest will
-// be imported using importScripts (as is workbox itself) and we can
-// precache this. This is all we need for precaching
-workbox.precaching.precacheAndRoute(self.__precacheManifest);
-
-// Make sure to return a specific response for all navigation requests.
-// Since we have a SPA here, this should be index.html always.
-// https://stackoverflow.com/questions/49963982/vue-router-history-mode-with-pwa-in-offline-mode
 workbox.routing.registerNavigationRoute('/index.html')
 
-// Setup cache strategy for Google Fonts. They consist of two parts, a static one
-// coming from fonts.gstatic.com (strategy CacheFirst) and a more ferquently updated on
-// from fonts.googleapis.com. Hence, split in two registerroutes
 workbox.routing.registerRoute(
     /^https:\/\/fonts\.googleapis\.com/,
     new workbox.strategies.StaleWhileRevalidate({
@@ -80,4 +66,7 @@ self.addEventListener('push', (e) => {
 
   e.waitUntil(self.registration.showNotification(data.title, options))
 })
+
+self.__precacheManifest = [].concat(self.__precacheManifest || []);
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
