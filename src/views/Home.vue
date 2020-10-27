@@ -16,3 +16,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.home {
+  min-height: calc(100vh - 50px);
+}
+</style>
