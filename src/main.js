@@ -6,6 +6,11 @@ import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 
+Notification.requestPermission().then(res => {
+  // denied 或 granted
+  console.log(res)
+});
+
 Vue.use(VueMaterial)
 Vue.config.productionTip = false
 

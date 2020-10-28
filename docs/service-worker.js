@@ -1,4 +1,4 @@
-importScripts("/vue-pwa/precache-manifest.e866a4bd00b25382c12c6b805318cda9.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/vue-pwa/precache-manifest.9e24263b513678d8839102bd85fa5988.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 workbox.routing.registerRoute(
     /^https:\/\/fonts\.googleapis\.com/,
@@ -57,9 +57,8 @@ self.addEventListener('push', (e) => {
   const options = {
     body: data.body,
     icon: '/img/icons/android-chrome-192x192.png',
-    image: '/img/autumn-forest.png',
     vibrate: [300, 200, 300],
-    badge: '/img/icons/plint-badge-96x96.png',
+    badge: '/img/icons/android-chrome-192x192.png',
   }
 
   if (Notification && Notification.permission == 'granted') {

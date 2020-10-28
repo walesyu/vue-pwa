@@ -4,7 +4,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-pwa/css/about.31c402f1.css"
   },
   {
-    "revision": "209723ecbbd61276f192",
+    "revision": "20cc2e3be0963192183d",
     "url": "/vue-pwa/css/app.3d6a9ea8.css"
   },
   {
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-pwa/img/logo.82b9c7a5.png"
   },
   {
-    "revision": "667a9451b47b4255ae06b54a3b37e624",
+    "revision": "731cef0c1b2d968a0675e47f9bb8596f",
     "url": "/vue-pwa/index.html"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-pwa/js/about.f9cd3900.js"
   },
   {
-    "revision": "209723ecbbd61276f192",
-    "url": "/vue-pwa/js/app.0e0f5259.js"
+    "revision": "20cc2e3be0963192183d",
+    "url": "/vue-pwa/js/app.ec734542.js"
   },
   {
     "revision": "e309f2e69c0127c62479",
@@ -40,7 +40,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-pwa/robots.txt"
   },
   {
-    "revision": "acf8f5f0ec5f5c33a25d691d8e5d7482",
+    "revision": "d799dc004cddb07c3fccc37df78cc6a7",
     "url": "/vue-pwa/service-worker.js"
   }
 ]);
