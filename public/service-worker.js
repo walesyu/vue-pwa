@@ -59,7 +59,8 @@ self.addEventListener('push', (e) => {
     vibrate: [300, 200, 300],
     badge: '/img/icons/plint-badge-96x96.png',
   }
-  if (window.Notification && Notification.permission === 'granted') {
+
+  if (Notification && Notification.permission == 'granted') {
     e.waitUntil(self.registration.showNotification(data.title, options))
   }
 })
