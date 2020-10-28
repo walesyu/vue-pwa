@@ -1,4 +1,4 @@
-importScripts("/vue-pwa/precache-manifest.9ca21664a5909ef1978dadecd1bfeeeb.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/vue-pwa/precache-manifest.30b4dcba563a816e3fc4842d6ea494a7.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 workbox.routing.registerRoute(
     /^https:\/\/fonts\.googleapis\.com/,
@@ -61,8 +61,9 @@ self.addEventListener('push', (e) => {
     vibrate: [300, 200, 300],
     badge: '/img/icons/plint-badge-96x96.png',
   }
-
-  e.waitUntil(self.registration.showNotification(data.title, options))
+  if (window.Notification && Notification.permission === 'granted') {
+    e.waitUntil(self.registration.showNotification(data.title, options))
+  }
 })
 
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
