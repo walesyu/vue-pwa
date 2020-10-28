@@ -60,6 +60,18 @@ Progressive Web Apps(漸進式網頁應用程式)： 利用現有的網頁技術
   ![](images/app_in_edge.png)
 
 ### service worker
+- service worker 是一個在瀏覽器背景執行的script，讓使用在不需要開啟網頁UI的情況下執行諸如推播服務或是背景同步的動作。
+- 利用service worker可以建構離線瀏覽功能
+- 目前已支援的瀏覽器: Chrome, Firefox, Opera, Edge(新版), safari.. [check here](https://caniuse.com/serviceworkers)
+- service worker 必須使用https(localhost 可以不用)
+#### service worker的事件
+ - service worker支援許多事件，挑選幾項說明詳細請參照 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope)
+ - install: 安裝service worker
+    - 開啟cache並寫入cache資料
+ - fetch: 當使用者連到網站的另一個頁面或refresh時
+    - 檢查cache是否存在，並將cache回傳給browser
+    - 沒有cache時向主機發起request，回應為200時將回應寫入cache並回傳給browser
+ - push: 當取得推播通知時觸發
 
 ## demo
    [demo site](https://walesyu.github.io/vue-pwa/)
